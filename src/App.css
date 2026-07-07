@@ -5,36 +5,171 @@
 }
 
 body {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.locket-app {
+.screen {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 24px;
+  position: relative;
+}
+
+/* Login screen */
+.login-screen {
+  padding-top: 48px;
+  gap: 16px;
+}
+
+.app-title {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.avatar-upload {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.avatar-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  font-size: 28px;
+  color: #aaa;
+}
+
+.avatar-hint {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: -8px;
+}
+
+.name-input {
+  background: #f5f5f5;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  color: #000;
+  font-size: 20px;
+  width: 280px;
+  text-align: center;
+  outline: none;
+}
+
+.name-input::placeholder {
+  color: #bbb;
+}
+
+.name-input:focus {
+  border-color: #999;
+}
+
+.passcode-input {
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+.login-btn {
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 48px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+
+.login-btn:hover {
+  opacity: 0.8;
+}
+
+.login-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Locket screen */
+.locket-screen {
   justify-content: center;
   gap: 20px;
+  background: #fff;
+}
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.profile-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  padding: 6px 14px 6px 6px;
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ddd;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
 }
 
 .from-label {
-  font-size: 15px;
-  color: #aaa;
-  letter-spacing: 0.5px;
+  font-size: 32px;
 }
 
 .photo-circle {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  border: 3px solid #333;
+  border: 3px solid #e0e0e0;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111;
+  background: #f5f5f5;
 }
 
 .photo {
@@ -49,21 +184,22 @@ body {
 
 .time-label {
   font-size: 13px;
-  color: #555;
+  color: #aaa;
 }
 
 .upload-btn {
   margin-top: 12px;
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
   padding: 14px 32px;
   border-radius: 50px;
   cursor: pointer;
   transition: opacity 0.2s;
+  display: inline-block;
 }
 
 .upload-btn:hover {
-  opacity: 0.85;
+  opacity: 0.8;
 }
