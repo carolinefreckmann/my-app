@@ -23,7 +23,7 @@ function LoginScreen({ onLogin }) {
   }
 
   function handleSubmit() {
-    if (name.trim() && passcode.length === 4) onLogin({ name, avatar })
+    if (name.trim() && passcode.length >= 1) onLogin({ name, avatar })
   }
 
   return (
