@@ -50,17 +50,15 @@ function LoginScreen({ onLogin }) {
       <input
         className="name-input passcode-input"
         type="password"
-        placeholder="4-digit passcode"
-        maxLength={4}
-        inputMode="numeric"
+        placeholder="passcode"
         value={passcode}
-        onChange={e => setPasscode(e.target.value.replace(/\D/g, ''))}
+        onChange={e => setPasscode(e.target.value)}
       />
 
       <button
         className="login-btn"
         onClick={handleSubmit}
-        disabled={!name.trim() || passcode.length !== 4}
+        disabled={!name.trim() || passcode.length < 1}
       >
         let's go
       </button>
