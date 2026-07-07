@@ -66,6 +66,14 @@ function LoginScreen({ onLogin }) {
   )
 }
 
+const FRIENDS = [
+  { name: 'Mia', color: '#f4a261' },
+  { name: 'Jordan', color: '#a8dadc' },
+  { name: 'Sofia', color: '#c77dff' },
+  { name: 'Blake', color: '#f9c74f' },
+  { name: 'Riley', color: '#90be6d' },
+]
+
 function LocketScreen({ user, photo, setPhoto }) {
   function handleUpload(e) {
     const file = e.target.files[0]
@@ -101,6 +109,20 @@ function LocketScreen({ user, photo, setPhoto }) {
         send a photo
         <input type="file" accept="image/*" onChange={handleUpload} hidden />
       </label>
+
+      <div className="friends-section">
+        <p className="friends-title">friends</p>
+        <div className="friends-row">
+          {FRIENDS.map(friend => (
+            <div className="friend-card" key={friend.name}>
+              <div className="friend-circle" style={{ background: friend.color }}>
+                <span className="placeholder">📷</span>
+              </div>
+              <p className="friend-name">{friend.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
