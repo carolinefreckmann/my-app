@@ -2,11 +2,19 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('user')
+    return saved ? JSON.parse(saved) : null
+  })
   const [photo, setPhoto] = useState(null)
 
+  function handleLogin(userData) {
+    localStorage.setItem('user', JSON.stringify(userData))
+    setUser(userData)
+  }
+
   if (!user) {
-    return <LoginScreen onLogin={setUser} />
+    return <LoginScreen onLogin={handleLogin} />
   }
 
   return <LocketScreen user={user} photo={photo} setPhoto={setPhoto} />
@@ -19,7 +27,11 @@ function LoginScreen({ onLogin }) {
 
   function handleAvatar(e) {
     const file = e.target.files[0]
-    if (file) setAvatar(URL.createObjectURL(file))
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (event) => setAvatar(event.target.result)
+      reader.readAsDataURL(file)
+    }
   }
 
   function handleSubmit() {
